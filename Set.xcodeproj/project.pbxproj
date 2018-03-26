@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		E900C90D2061B1DE00D8CE94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C90C2061B1DE00D8CE94 /* AppDelegate.swift */; };
-		E900C90F2061B1DE00D8CE94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C90E2061B1DE00D8CE94 /* ViewController.swift */; };
+		E900C90F2061B1DE00D8CE94 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C90E2061B1DE00D8CE94 /* SetViewController.swift */; };
 		E900C9122061B1DE00D8CE94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E900C9102061B1DE00D8CE94 /* Main.storyboard */; };
 		E900C9142061B1DE00D8CE94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E900C9132061B1DE00D8CE94 /* Assets.xcassets */; };
 		E900C9172061B1DE00D8CE94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E900C9152061B1DE00D8CE94 /* LaunchScreen.storyboard */; };
+		E900C9202061B35400D8CE94 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C91F2061B35400D8CE94 /* SetGame.swift */; };
+		E900C9222061B6AB00D8CE94 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9212061B6AB00D8CE94 /* Card.swift */; };
+		E900C9242061BAE100D8CE94 /* DeckOfCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9232061BAE100D8CE94 /* DeckOfCards.swift */; };
+		E900C9272061C6ED00D8CE94 /* Array+shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */; };
+		E900C9282061C6ED00D8CE94 /* Int+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9262061C6ED00D8CE94 /* Int+Random.swift */; };
+		E975430A20684A3700DAA076 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975430920684A3700DAA076 /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E900C9092061B1DE00D8CE94 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E900C90C2061B1DE00D8CE94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E900C90E2061B1DE00D8CE94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E900C90E2061B1DE00D8CE94 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		E900C9112061B1DE00D8CE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E900C9132061B1DE00D8CE94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E900C9162061B1DE00D8CE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E900C9182061B1DE00D8CE94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E900C91F2061B35400D8CE94 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
+		E900C9212061B6AB00D8CE94 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E900C9232061BAE100D8CE94 /* DeckOfCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckOfCards.swift; sourceTree = "<group>"; };
+		E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+shuffle.swift"; path = "../../Concentration/Concentration/Array+shuffle.swift"; sourceTree = "<group>"; };
+		E900C9262061C6ED00D8CE94 /* Int+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Random.swift"; path = "../../Concentration/Concentration/Int+Random.swift"; sourceTree = "<group>"; };
+		E975430920684A3700DAA076 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,28 @@
 		E900C90B2061B1DE00D8CE94 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				E900C90C2061B1DE00D8CE94 /* AppDelegate.swift */,
-				E900C90E2061B1DE00D8CE94 /* ViewController.swift */,
+				E900C90E2061B1DE00D8CE94 /* SetViewController.swift */,
+				E975430920684A3700DAA076 /* CardCollectionViewCell.swift */,
+				E900C91F2061B35400D8CE94 /* SetGame.swift */,
+				E900C9212061B6AB00D8CE94 /* Card.swift */,
+				E900C9232061BAE100D8CE94 /* DeckOfCards.swift */,
 				E900C9102061B1DE00D8CE94 /* Main.storyboard */,
+				E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */,
+				E900C9262061C6ED00D8CE94 /* Int+Random.swift */,
 				E900C9132061B1DE00D8CE94 /* Assets.xcassets */,
-				E900C9152061B1DE00D8CE94 /* LaunchScreen.storyboard */,
 				E900C9182061B1DE00D8CE94 /* Info.plist */,
+				E900C91E2061B20200D8CE94 /* Supporting Files */,
 			);
 			path = Set;
+			sourceTree = "<group>";
+		};
+		E900C91E2061B20200D8CE94 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E900C90C2061B1DE00D8CE94 /* AppDelegate.swift */,
+				E900C9152061B1DE00D8CE94 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +162,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E900C90F2061B1DE00D8CE94 /* ViewController.swift in Sources */,
+				E975430A20684A3700DAA076 /* CardCollectionViewCell.swift in Sources */,
+				E900C9242061BAE100D8CE94 /* DeckOfCards.swift in Sources */,
+				E900C9282061C6ED00D8CE94 /* Int+Random.swift in Sources */,
+				E900C9272061C6ED00D8CE94 /* Array+shuffle.swift in Sources */,
+				E900C90F2061B1DE00D8CE94 /* SetViewController.swift in Sources */,
 				E900C90D2061B1DE00D8CE94 /* AppDelegate.swift in Sources */,
+				E900C9202061B35400D8CE94 /* SetGame.swift in Sources */,
+				E900C9222061B6AB00D8CE94 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
