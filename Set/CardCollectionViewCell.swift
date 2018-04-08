@@ -12,10 +12,10 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cardCell: UILabel!
     
-    var displayedSymbol: String? {
+    var displayedSymbol: NSAttributedString? {
         didSet {
             if displayedSymbol != nil {
-                cardCell.text = displayedSymbol
+                cardCell.attributedText = displayedSymbol
             }
         }
     }

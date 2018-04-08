@@ -31,12 +31,20 @@ struct Card: Equatable, Hashable
         static let all = [Number.one, .two, .three]
     }
     
+//    enum Symbol: Int {
+//        case diamond = 10
+//        case squiggle = 20
+//        case oval = 30
+//
+//        static let all = [Symbol.diamond, .squiggle, .oval]
+//    }
+    
     enum Symbol: Int {
-        case diamond = 10
-        case squiggle = 20
-        case oval = 30
+        case circle = 10
+        case triangle = 20
+        case square = 30
         
-        static let all = [Symbol.diamond, .squiggle, .oval]
+        static let all = [Symbol.circle, .triangle, .square]
     }
     
     enum Shading: Int {

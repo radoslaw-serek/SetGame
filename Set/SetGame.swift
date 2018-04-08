@@ -11,12 +11,20 @@ import Foundation
 class SetGame
 {
     
-    //var matchedCards = [Card]()
-    var selectedCards = [Card]()
-    var cardsInGame: [Card]
+    private(set) var selectedCards = [Card]()
+    private(set) var cardsCurrentlyInGame = [Card]()
+    private(set) var cardsLeftInDeck: [Card]
     
     init() {
-        self.cardsInGame = DeckOfCards().cards
+        self.cardsLeftInDeck = DeckOfCards().cards
+    }
+    
+    func startGame(with numberOfCards: Int) {
+        cardsCurrentlyInGame = cardsLeftInDeck.removeFirst(numberOfElements: numberOfCards)
+    }
+    
+    func addMoreCards(numberOfCardsToBeAdded: Int) {
+        cardsCurrentlyInGame.append(contentsOf: (cardsLeftInDeck.removeFirst(numberOfElements: numberOfCardsToBeAdded)))
     }
     
     func matchCards() {
@@ -29,10 +37,11 @@ class SetGame
         
         if colorsMatching, numbersMatching, shadingsMatching, symbolsMatching {
             for card in selectedCards {
-                if let index = cardsInGame.index(of: card) {
-                    cardsInGame.remove(at: index)
+                if let index = cardsCurrentlyInGame.index(of: card) {
+                    cardsCurrentlyInGame.remove(at: index)
                 }
             }
+            
             selectedCards.removeAll()
         }
     }
@@ -44,5 +53,16 @@ class SetGame
     }
     
     
+}
+
+extension Array {
+    mutating func removeFirst(numberOfElements n: Int) -> Array<Element> {
+        var array = Array<Element>()
+        for _ in 0..<n {
+            array.append(self.removeFirst())
+        
+        }
+        return array
+    }
 }
 
