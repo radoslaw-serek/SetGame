@@ -18,6 +18,8 @@
 		E900C9272061C6ED00D8CE94 /* Array+shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */; };
 		E900C9282061C6ED00D8CE94 /* Int+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9262061C6ED00D8CE94 /* Int+Random.swift */; };
 		E975430A20684A3700DAA076 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975430920684A3700DAA076 /* CardCollectionViewCell.swift */; };
+		E975430C207AA33D00DAA076 /* Array+removeFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975430B207AA33D00DAA076 /* Array+removeFirst.swift */; };
+		E975430E207AC27300DAA076 /* SetGameFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975430D207AC27300DAA076 /* SetGameFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+shuffle.swift"; path = "../../Concentration/Concentration/Array+shuffle.swift"; sourceTree = "<group>"; };
 		E900C9262061C6ED00D8CE94 /* Int+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Random.swift"; path = "../../Concentration/Concentration/Int+Random.swift"; sourceTree = "<group>"; };
 		E975430920684A3700DAA076 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		E975430B207AA33D00DAA076 /* Array+removeFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+removeFirst.swift"; sourceTree = "<group>"; };
+		E975430D207AC27300DAA076 /* SetGameFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				E900C90E2061B1DE00D8CE94 /* SetViewController.swift */,
+				E975430D207AC27300DAA076 /* SetGameFooterView.swift */,
 				E975430920684A3700DAA076 /* CardCollectionViewCell.swift */,
 				E900C91F2061B35400D8CE94 /* SetGame.swift */,
+				E975430B207AA33D00DAA076 /* Array+removeFirst.swift */,
 				E900C9212061B6AB00D8CE94 /* Card.swift */,
 				E900C9232061BAE100D8CE94 /* DeckOfCards.swift */,
 				E900C9102061B1DE00D8CE94 /* Main.storyboard */,
@@ -166,9 +172,11 @@
 				E900C9242061BAE100D8CE94 /* DeckOfCards.swift in Sources */,
 				E900C9282061C6ED00D8CE94 /* Int+Random.swift in Sources */,
 				E900C9272061C6ED00D8CE94 /* Array+shuffle.swift in Sources */,
+				E975430E207AC27300DAA076 /* SetGameFooterView.swift in Sources */,
 				E900C90F2061B1DE00D8CE94 /* SetViewController.swift in Sources */,
 				E900C90D2061B1DE00D8CE94 /* AppDelegate.swift in Sources */,
 				E900C9202061B35400D8CE94 /* SetGame.swift in Sources */,
+				E975430C207AA33D00DAA076 /* Array+removeFirst.swift in Sources */,
 				E900C9222061B6AB00D8CE94 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

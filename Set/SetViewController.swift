@@ -10,27 +10,37 @@ import UIKit
 
 class SetViewController: UICollectionViewController {
 
+    @IBOutlet weak var setCollectionView: UICollectionView!
     
     let game = SetGame()
     
     private var symbol: String?
     
+    private let reuseIdentifier = "CardCell"
     
-        override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
+        game.startGame(with: 12)
+        let width = (view.frame.size.width - 20) / 3
+        let height = (view.frame.size.height - 70) / 8
+        let layout = setCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: height)
+        updateUI()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return game.cardsCurrentlyInGame.count
+    private func matchCards() {
+        
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let dequeued = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath)
-        guard let cardCell = dequeued as? CardCollectionViewCell else { return UICollectionViewCell() }
-        cardCell.displayedSymbol = makeDisplayedTextOnCard(card: game.cardsCurrentlyInGame[indexPath.row])
-        return cardCell
+    private func addThreeMoreCards() {
+        game.addMoreCards(numberOfCardsToBeAdded: 3)
+        updateUI()
+    }
+    
+    private func updateUI() {
+        setCollectionView.reloadData()
     }
     
     private func makeDisplayedTextOnCard (card: Card) -> NSAttributedString {
@@ -45,6 +55,28 @@ class SetViewController: UICollectionViewController {
         return displayedText
         
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return game.cardsCurrentlyInGame.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let dequeued = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cardCell = dequeued as? CardCollectionViewCell else { return UICollectionViewCell() }
+        cardCell.displayedSymbol = makeDisplayedTextOnCard(card: game.cardsCurrentlyInGame[indexPath.row])
+        return cardCell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionFooter:
+            let footerView = setCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SetFooterView", for: indexPath)
+            return footerView
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
+
 
 }
 
