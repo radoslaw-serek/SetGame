@@ -51,7 +51,9 @@ class SetGame
                 }
             }
             selectedCards.removeAll()
-            addThreeMoreCards()
+            if cardsCurrentlyInGame.count < 12 {
+                addThreeMoreCards()
+            }
             return true
         } else {
         selectedCards.removeAll()
