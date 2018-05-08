@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wLf-tZ-htF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wLf-tZ-htF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Set View Controller-->
         <scene sceneID="g41-TK-fS3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bfk-th-9Xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="wLf-tZ-htF" customClass="SetViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="u1V-YM-x10">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -21,7 +20,7 @@
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ate-08-hzt">
                             <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="50" height="144"/>
+                            <size key="footerReferenceSize" width="50" height="89"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -32,17 +31,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJP-gT-BEU">
-                                            <rect key="frame" x="29" y="40" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="bJP-gT-BEU">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="bJP-gT-BEU" firstAttribute="centerX" secondItem="6fV-NB-gMs" secondAttribute="centerX" id="2Qi-DK-vwc"/>
-                                    <constraint firstItem="bJP-gT-BEU" firstAttribute="centerY" secondItem="6fV-NB-gMs" secondAttribute="centerY" id="XRk-Hd-aPY"/>
+                                    <constraint firstAttribute="bottom" secondItem="bJP-gT-BEU" secondAttribute="bottom" id="ATn-Mo-bx9"/>
+                                    <constraint firstItem="bJP-gT-BEU" firstAttribute="leading" secondItem="6fV-NB-gMs" secondAttribute="leading" id="DhN-mm-2vn"/>
+                                    <constraint firstAttribute="trailing" secondItem="bJP-gT-BEU" secondAttribute="trailing" id="T66-Iv-bhM"/>
+                                    <constraint firstItem="bJP-gT-BEU" firstAttribute="top" secondItem="6fV-NB-gMs" secondAttribute="top" id="ecO-30-33b"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="cardCell" destination="bJP-gT-BEU" id="Zf3-QC-fUb"/>
@@ -50,26 +51,33 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SetFooterView" id="tct-8b-IhS" customClass="SetGameFooterView" customModule="Set" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="100" width="375" height="144"/>
+                            <rect key="frame" x="0.0" y="100" width="375" height="89"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eec-qM-UvV">
-                                    <rect key="frame" x="131" y="93" width="113" height="43"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="New Game"/>
-                                    <connections>
-                                        <action selector="startNewGame:" destination="tct-8b-IhS" eventType="touchUpInside" id="msZ-mf-KEK"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fna-gk-kzh">
-                                    <rect key="frame" x="131" y="0.0" width="113" height="43"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Match Cards"/>
-                                    <connections>
-                                        <action selector="matchCards:" destination="tct-8b-IhS" eventType="touchUpInside" id="clO-Ai-C79"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BiD-JJ-AG4">
+                                    <rect key="frame" x="126" y="14" width="122" height="60"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-fY-LeQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="30"/>
+                                            <state key="normal" title="Add 3 more cards"/>
+                                            <connections>
+                                                <action selector="addMoreCards:" destination="tct-8b-IhS" eventType="touchUpInside" id="Ufs-l4-adI"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eec-qM-UvV">
+                                            <rect key="frame" x="0.0" y="30" width="122" height="30"/>
+                                            <state key="normal" title="New Game"/>
+                                            <connections>
+                                                <action selector="startNewGame:" destination="tct-8b-IhS" eventType="touchUpInside" id="msZ-mf-KEK"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="BiD-JJ-AG4" firstAttribute="centerY" secondItem="tct-8b-IhS" secondAttribute="centerY" id="KcV-EL-DJj"/>
+                                <constraint firstItem="BiD-JJ-AG4" firstAttribute="centerX" secondItem="tct-8b-IhS" secondAttribute="centerX" id="QK9-iA-BGq"/>
+                            </constraints>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="wLf-tZ-htF" id="Nc1-ZY-N5r"/>
@@ -80,6 +88,7 @@
                         <outlet property="setCollectionView" destination="u1V-YM-x10" id="j5T-WO-ixb"/>
                     </connections>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfk-th-9Xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="772" y="130.88455772113943"/>
         </scene>

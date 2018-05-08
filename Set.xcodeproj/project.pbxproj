@@ -17,6 +17,7 @@
 		E900C9242061BAE100D8CE94 /* DeckOfCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9232061BAE100D8CE94 /* DeckOfCards.swift */; };
 		E900C9272061C6ED00D8CE94 /* Array+shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */; };
 		E900C9282061C6ED00D8CE94 /* Int+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E900C9262061C6ED00D8CE94 /* Int+Random.swift */; };
+		E90979E020A231FC008E10F5 /* CardViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90979DF20A231FC008E10F5 /* CardViewExtension.swift */; };
 		E975430A20684A3700DAA076 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975430920684A3700DAA076 /* CardCollectionViewCell.swift */; };
 		E975430C207AA33D00DAA076 /* Array+removeFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975430B207AA33D00DAA076 /* Array+removeFirst.swift */; };
 		E975430E207AC27300DAA076 /* SetGameFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975430D207AC27300DAA076 /* SetGameFooterView.swift */; };
@@ -35,6 +36,7 @@
 		E900C9232061BAE100D8CE94 /* DeckOfCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckOfCards.swift; sourceTree = "<group>"; };
 		E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+shuffle.swift"; path = "../../Concentration/Concentration/Array+shuffle.swift"; sourceTree = "<group>"; };
 		E900C9262061C6ED00D8CE94 /* Int+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Random.swift"; path = "../../Concentration/Concentration/Int+Random.swift"; sourceTree = "<group>"; };
+		E90979DF20A231FC008E10F5 /* CardViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewExtension.swift; sourceTree = "<group>"; };
 		E975430920684A3700DAA076 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		E975430B207AA33D00DAA076 /* Array+removeFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+removeFirst.swift"; sourceTree = "<group>"; };
 		E975430D207AC27300DAA076 /* SetGameFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameFooterView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				E900C91F2061B35400D8CE94 /* SetGame.swift */,
 				E975430B207AA33D00DAA076 /* Array+removeFirst.swift */,
 				E900C9212061B6AB00D8CE94 /* Card.swift */,
+				E90979DF20A231FC008E10F5 /* CardViewExtension.swift */,
 				E900C9232061BAE100D8CE94 /* DeckOfCards.swift */,
 				E900C9102061B1DE00D8CE94 /* Main.storyboard */,
 				E900C9252061C6EC00D8CE94 /* Array+shuffle.swift */,
@@ -123,7 +126,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Radosław Serek";
 				TargetAttributes = {
 					E900C9082061B1DE00D8CE94 = {
@@ -171,6 +174,7 @@
 				E975430A20684A3700DAA076 /* CardCollectionViewCell.swift in Sources */,
 				E900C9242061BAE100D8CE94 /* DeckOfCards.swift in Sources */,
 				E900C9282061C6ED00D8CE94 /* Int+Random.swift in Sources */,
+				E90979E020A231FC008E10F5 /* CardViewExtension.swift in Sources */,
 				E900C9272061C6ED00D8CE94 /* Array+shuffle.swift in Sources */,
 				E975430E207AC27300DAA076 /* SetGameFooterView.swift in Sources */,
 				E900C90F2061B1DE00D8CE94 /* SetViewController.swift in Sources */,
@@ -217,6 +221,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -224,6 +229,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -274,6 +280,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -281,6 +288,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

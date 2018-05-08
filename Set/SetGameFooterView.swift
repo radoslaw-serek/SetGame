@@ -8,12 +8,20 @@
 
 import UIKit
 
+protocol SetGameFooterViewDelegate: class {
+    func view(_ view: SetGameFooterView, didTapAddMoreCardButton button: UIButton)
+    func view(_ view: SetGameFooterView, didTapStartNewGameButton button: UIButton)
+}
+
 class SetGameFooterView: UICollectionReusableView {
     
-    @IBAction func startNewGame(_ sender: UIButton) {
-        
+    weak var delegate: SetGameFooterViewDelegate?
+    
+    @IBAction func addMoreCards(_ sender: UIButton) {
+        delegate?.view(self, didTapAddMoreCardButton: sender)
     }
     
-    @IBAction func matchCards(_ sender: UIButton) {
+    @IBAction func startNewGame(_ sender: UIButton) {
+        delegate?.view(self, didTapStartNewGameButton: sender)
     }
 }

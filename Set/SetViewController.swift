@@ -17,26 +17,19 @@ class SetViewController: UICollectionViewController {
     private var symbol: String?
     
     private let reuseIdentifier = "CardCell"
-    
-    
+    private let cardsPerRow: CGFloat = 3
+    private let columns: CGFloat = 8
+    private let inset: CGFloat = 50
+    private lazy var sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        game.startGame(with: 12)
-        let width = (view.frame.size.width - 20) / 3
-        let height = (view.frame.size.height - 70) / 8
-        let layout = setCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: width, height: height)
-        updateUI()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    private func matchCards() {
         
-    }
-    
-    private func addThreeMoreCards() {
-        game.addMoreCards(numberOfCardsToBeAdded: 3)
+        game.startGame()
+        setCollectionView?.allowsMultipleSelection = true
+        
         updateUI()
+
     }
     
     private func updateUI() {
@@ -49,13 +42,42 @@ class SetViewController: UICollectionViewController {
         let color = card.color.colorValue()
         let shadedColor = color.withAlphaComponent(card.shading.shadingValue())
         let number = card.number.numberValue()
-        let displayedSymbol = String(describing: repeatElement(symbol, count: number))
-        let displayedText = NSAttributedString(string: displayedSymbol, attributes: [NSAttributedStringKey.foregroundColor : shadedColor])
+        let displayedSymbol = String(repeating: symbol, count: number)
+        let displayedText = NSAttributedString(
+            string: displayedSymbol,
+            attributes:[
+                .font : UIFont.boldSystemFont(ofSize: 25),
+                .foregroundColor : shadedColor,
+                .strokeColor : color,
+                .strokeWidth : -3.0
+            ]
+        )
         
         return displayedText
+    }
+}
+
+extension SetViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        let paddingSpaceHeight = (inset / 2) * (columns - 1)
+        let availableHeight = view.frame.height - paddingSpaceHeight
+        let heightPerItem = availableHeight / columns
+        
+        return CGSize(width: heightPerItem, height: heightPerItem)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return (inset / 5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInset
+    }
+}
+
+extension SetViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return game.cardsCurrentlyInGame.count
     }
@@ -70,54 +92,59 @@ class SetViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionElementKindSectionFooter:
-            let footerView = setCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SetFooterView", for: indexPath)
+            let footerView = setCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SetFooterView", for: indexPath) as! SetGameFooterView
+            footerView.delegate = self
             return footerView
         default:
             assert(false, "Unexpected element kind")
         }
     }
-
-
 }
 
-extension Card.Color {
-    func colorValue() -> UIColor {
-        switch self {
-        case .green: return .green
-        case .purple: return .purple
-        case .red: return .red
+extension SetViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard game.allowCardSelection else {return false}
+        
+        let card = game.cardsCurrentlyInGame[indexPath.row]
+        return game.selectedCards.contains(card) ? false : true
+
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let card = game.cardsCurrentlyInGame[indexPath.row]
+        game.selectedCards.append(card)
+        if game.matchCards() != nil {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                self.updateUI()
+            }
+        }
+
+    }
+
+
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        let card = game.cardsCurrentlyInGame[indexPath.row]
+        
+        if let selectedCardIndex = game.selectedCards.index(of: card) {
+            game.selectedCards.remove(at: selectedCardIndex)
         }
     }
 }
 
-extension Card.Number {
-    func numberValue() -> Int {
-        switch self {
-        case .one: return 1
-        case .two: return 2
-        case .three: return 3
-        }
+extension SetViewController: SetGameFooterViewDelegate {
+    func view(_ view: SetGameFooterView, didTapAddMoreCardButton button: UIButton) {
+        game.addThreeMoreCards()
+        updateUI()
     }
-}
-
-extension Card.Shading {
-    func shadingValue() -> CGFloat {
-        switch self {
-        case .open: return 0.0
-        case .solid: return 1.0
-        case .striped: return 0.15
-        }
+    
+    func view(_ view: SetGameFooterView, didTapStartNewGameButton button: UIButton) {
+        game.resetGame()
+        updateUI()
     }
+    
+    
+    
 }
-
-extension Card.Symbol {
-    func symbolValue() -> String {
-        switch self {
-        case .circle: return "⚫︎"
-        case .square: return "◼︎"
-        case .triangle: return "▲"
-        }
-    }
-}
-
-

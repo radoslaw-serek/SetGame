@@ -11,24 +11,33 @@ import Foundation
 class SetGame
 {
     
-    private(set) var selectedCards = [Card]()
+    var selectedCards = [Card]()
+    private let startingAmountOfCards = 12
+    private let maxAmountOfCards = 24
+    
     private(set) var cardsCurrentlyInGame = [Card]()
     private(set) var cardsLeftInDeck: [Card]
+    
+    var allowCardSelection: Bool {
+        return !(selectedCards.count > 2)
+    }
     
     init() {
         self.cardsLeftInDeck = DeckOfCards().cards
     }
     
-    func startGame(with numberOfCards: Int) {
-        cardsCurrentlyInGame = cardsLeftInDeck.removeFirst(numberOfElements: numberOfCards)
+    func startGame() {
+        cardsCurrentlyInGame = cardsLeftInDeck.removeFirst(numberOfElements: startingAmountOfCards)
     }
     
-    func addMoreCards(numberOfCardsToBeAdded: Int) {
-        cardsCurrentlyInGame.append(contentsOf: (cardsLeftInDeck.removeFirst(numberOfElements: numberOfCardsToBeAdded)))
+    func addThreeMoreCards() {
+        if cardsCurrentlyInGame.count < maxAmountOfCards {
+        cardsCurrentlyInGame.append(contentsOf: (cardsLeftInDeck.removeFirst(numberOfElements: 3)))
+        }
     }
     
-    func matchCards() {
-        guard selectedCards.count == 3 else { return }
+    func matchCards() -> Bool? {
+        guard selectedCards.count == 3 else { return nil}
         
         let colorsMatching = isDimensionMatching(array: selectedCards) { $0.color.rawValue }
         let numbersMatching = isDimensionMatching(array: selectedCards) { $0.number.rawValue}
@@ -41,13 +50,19 @@ class SetGame
                     cardsCurrentlyInGame.remove(at: index)
                 }
             }
-            
             selectedCards.removeAll()
+            addThreeMoreCards()
+            return true
+        } else {
+        selectedCards.removeAll()
+        return false
         }
     }
     
     func resetGame() {
-        
+        cardsLeftInDeck = DeckOfCards().cards
+        startGame()
+        selectedCards.removeAll()
     }
     
     private func isDimensionMatching(array: [Card], dimensionSelector: ((Card) -> Int)) -> Bool {
@@ -55,8 +70,6 @@ class SetGame
         //if set.count == 1 - all elements of array are matching, if set.count == 3 the all elements of array are different
         return dimensions.count != 2
     }
-    
-    
 }
 
 
