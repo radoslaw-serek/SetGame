@@ -55,17 +55,10 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BiD-JJ-AG4">
-                                    <rect key="frame" x="126" y="14" width="122" height="60"/>
+                                    <rect key="frame" x="149.5" y="29" width="75" height="30"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-fY-LeQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="122" height="30"/>
-                                            <state key="normal" title="Add 3 more cards"/>
-                                            <connections>
-                                                <action selector="addMoreCards:" destination="tct-8b-IhS" eventType="touchUpInside" id="Ufs-l4-adI"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eec-qM-UvV">
-                                            <rect key="frame" x="0.0" y="30" width="122" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
                                             <state key="normal" title="New Game"/>
                                             <connections>
                                                 <action selector="startNewGame:" destination="tct-8b-IhS" eventType="touchUpInside" id="msZ-mf-KEK"/>

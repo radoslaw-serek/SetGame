@@ -10,7 +10,16 @@ import UIKit
 
 class SetViewController: UICollectionViewController {
 
-    @IBOutlet weak var setCollectionView: UICollectionView!
+    @IBOutlet weak var setCollectionView: UICollectionView! {
+        didSet{
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(addThreeMoreCards))
+            swipe.direction = .down
+            setCollectionView.addGestureRecognizer(swipe)
+            
+            let rotation = UIRotationGestureRecognizer(target: self, action: #selector(reshuffleTheCards))
+            setCollectionView.addGestureRecognizer(rotation)
+        }
+    }
     
     let game = SetGame()
     
@@ -30,6 +39,21 @@ class SetViewController: UICollectionViewController {
         
         updateUI()
 
+    }
+    
+    @objc private func addThreeMoreCards() {
+        game.addThreeMoreCards()
+        updateUI()
+    }
+    
+    @objc private func reshuffleTheCards(byHandlingGestureRecognizedBy recognizer: UIRotationGestureRecognizer) {
+        
+        switch recognizer.state {
+        case .ended,.changed:
+            game.reshuffle()
+            updateUI()
+        default: break
+        }
     }
     
     private func updateUI() {
@@ -135,11 +159,10 @@ extension SetViewController {
 }
 
 extension SetViewController: SetGameFooterViewDelegate {
-    func view(_ view: SetGameFooterView, didTapAddMoreCardButton button: UIButton) {
-        game.addThreeMoreCards()
-        updateUI()
-    }
-    
+//    func view(_ view: SetGameFooterView, didTapAddMoreCardButton button: UIButton) {
+//        addThreeMoreCards()
+//    }
+
     func view(_ view: SetGameFooterView, didTapStartNewGameButton button: UIButton) {
         game.resetGame()
         updateUI()

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SetGameFooterViewDelegate: class {
-    func view(_ view: SetGameFooterView, didTapAddMoreCardButton button: UIButton)
+//    func view(_ view: SetGameFooterView, didTapAddMoreCardButton button: UIButton)
     func view(_ view: SetGameFooterView, didTapStartNewGameButton button: UIButton)
 }
 
@@ -17,9 +17,9 @@ class SetGameFooterView: UICollectionReusableView {
     
     weak var delegate: SetGameFooterViewDelegate?
     
-    @IBAction func addMoreCards(_ sender: UIButton) {
-        delegate?.view(self, didTapAddMoreCardButton: sender)
-    }
+//    @IBAction func addMoreCards(_ sender: UIButton) {
+//        delegate?.view(self, didTapAddMoreCardButton: sender)
+//    }
     
     @IBAction func startNewGame(_ sender: UIButton) {
         delegate?.view(self, didTapStartNewGameButton: sender)

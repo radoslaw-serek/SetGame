@@ -67,6 +67,10 @@ class SetGame
         selectedCards.removeAll()
     }
     
+    func reshuffle() {
+        cardsCurrentlyInGame.shuffle()
+    }
+    
     private func isDimensionMatching(array: [Card], dimensionSelector: ((Card) -> Int)) -> Bool {
         let dimensions = Set(array.map(dimensionSelector))
         //if set.count == 1 - all elements of array are matching, if set.count == 3 the all elements of array are different
